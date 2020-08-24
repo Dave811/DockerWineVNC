@@ -16,8 +16,8 @@ sudo sed -i "s|$OLD|$NEW|g" $file
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 
-#OLD="command=/opt/wine-stable/bin/wine /opt/wine-stable/lib/wine/explorer.exe"
-#NEW="command=/opt/wine-stable/bin/wine ${MODIFIED_STARTUP}"
-#sudo sed -i "s|$OLD|$NEW|g" $file
-sudo /usr/bin/supervisord
+OLD="command=/opt/wine-stable/bin/wine /opt/wine-stable/lib/wine/explorer.exe"
+NEW="command=/opt/wine-stable/bin/wine ${MODIFIED_STARTUP}"
+sudo sed -i "s|$OLD|$NEW|g" $file
 
+sudo /usr/bin/supervisord
